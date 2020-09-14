@@ -1,0 +1,37 @@
+<div class="login-page">
+    <div class="error-box" *ngIf="isError">{{ errorMsg }}</div>
+    <div class="form">
+        <form class="login-form" [formGroup]="surveyForm" (ngSubmit)="save()">
+            <div class="radio-position">
+                <div class="radio-left">
+                    <input type="radio" value="true" formControlName="active">
+                </div>
+                <div class="radio-right">
+                    <label>Active</label>
+                </div>
+            </div>
+            <input type="text" placeholder="Survey Name" formControlName="surveyName" />
+            <input type="text" placeholder="Survey Expiry Date" formControlName="surveyExpDate" />
+            <input type="text" placeholder="Survey URL" formControlName="surveyURL" />
+            <input type="text" placeholder="Survey from Email Address" formControlName="surveyEmail" />
+            <div class="check-position">
+                <div class="check-left">
+                    <input type="checkbox" formControlName="caseClosure"><label>Case Closure</label>
+                </div>
+                <div class="check-right">
+                    <input type="checkbox" formControlName="activityClosure"><label>Activity Closure</label>
+                </div>
+            </div>
+            <select formControlName="surveyAccessibility">
+                <option value="SA" disabled>Survey Accessibility</option>
+                <option value="Usergroup1">Usergroup1</option>
+                <option value="Usergroup2">Usergroup2</option>
+                <option value="Usergroup3">Usergroup3</option>
+                <option value="Usergroup4">Usergroup4</option>
+                <option value="Usergroup5">Usergroup5</option>
+            </select>
+            <button type="submit" [disabled]="!surveyForm.valid">Submit</button>
+        </form>
+
+    </div>
+</div>
